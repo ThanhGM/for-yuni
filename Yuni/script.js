@@ -6,7 +6,7 @@ const cardContent = document.getElementById('cardContent');
 const againButton = document.getElementById('againBtn');
 const heartButton = document.getElementById('heartBtn');
 const typedMessage = document.getElementById('typedMessage');
-const message = 'Anh tự hào về em rất nhiều. Top 20 hôm nay là phần thưởng cho sự chăm chỉ, bản lĩnh và trái tim em đặt vào mỗi buổi live. Cứ tỏa sáng theo cách của em nhé, vì với anh, em luôn là Top 1. ♥';
+const message = 'Anh tự hào về em rất nhiều. Top 15 hôm nay là phần thưởng cho sự chăm chỉ, bản lĩnh và trái tim em đặt vào mỗi buổi live. Cứ tỏa sáng theo cách của em nhé, vì với anh, em luôn là Top 1. ♥';
 let particles = [];
 let typingTimer;
 
