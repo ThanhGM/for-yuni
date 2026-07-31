@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>❤️ Chúc Mừng Yuni ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Segoe UI,sans-serif;
+}
+
+body{
+    overflow:hidden;
+    background:linear-gradient(180deg,#020111,#191621,#000);
+    height:100vh;
+    color:white;
+}
+
+canvas{
+    position:fixed;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+}
+
+.container{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    text-align:center;
+    z-index:100;
+}
+
+h1{
+    font-size:60px;
+    color:#ff66b3;
+    text-shadow:0 0 20px hotpink;
+}
+
+h2{
+    margin-top:20px;
+    font-size:35px;
+    color:#ffe066;
+}
+
+#text{
+    width:900px;
+    max-width:90vw;
+    margin:auto;
+    margin-top:30px;
+    font-size:26px;
+    line-height:45px;
+    color:white;
+}
+
+button{
+    margin-top:40px;
+    padding:18px 45px;
+    border:none;
+    border-radius:50px;
+    background:#ff3b87;
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.1);
+    background:#ff5aa0;
+}
+
+.heart{
+    position:absolute;
+    color:#ff4d88;
+    animation:fly linear infinite;
+}
+
+@keyframes fly{
+    from{
+        transform:translateY(0) scale(1);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-120vh) scale(2);
+        opacity:0;
+    }
+}
+
+.top{
+    font-size:60px;
+    color:#00ff99;
+    margin-top:30px;
+    text-shadow:0 0 30px #00ff99;
+    opacity:0;
+}
+
+.show{
+    animation:show 1s forwards;
+}
+
+@keyframes show{
+    from{
+        opacity:0;
+        transform:scale(.5);
+    }
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="fireworks"></canvas>
+
+<div class="container">
+
+<h1>❤️ CHÚC MỪNG YUNI ❤️</h1>
+
+<h2>Top 20 Công Hội Idol Live 🎉</h2>
+
+<div id="text"></div>
+
+<div class="top" id="top"></div>
+
+<button onclick="start()">💖 Nhấn vào đây 💖</button>
+
+</div>
+
+<script>
+
+const message=[
+"Hôm nay là một ngày thật đặc biệt...",
+"Anh biết em đã cố gắng rất nhiều.",
+"Có những hôm em mệt...",
+"Có những hôm em áp lực...",
+"Nhưng em chưa từng bỏ cuộc.",
+"Và hôm nay...",
+"✨ Em đã lọt TOP 20 Công Hội ✨",
+"",
+"Anh thật sự rất tự hào về em ❤️"
+];
+
+let i=0;
+
+function type(){
+
+if(i>=message.length){
+
+showTop();
+
+return;
+
+}
+
+let div=document.getElementById("text");
+
+let p=document.createElement("div");
+
+div.appendChild(p);
+
+let text=message[i];
+
+let j=0;
+
+let timer=setInterval(()=>{
+
+p.innerHTML=text.substring(0,j);
+
+j++;
+
+if(j>text.length){
+
+clearInterval(timer);
+
+i++;
+
+setTimeout(type,600);
+
+}
+
+},45);
+
+}
+
+function start(){
+
+document.querySelector("button").style.display="none";
+
+type();
+
+}function showTop(){
+
+const top=document.getElementById("top");
+
+const list=[
+"🏆 TOP 20",
+"🔥 TOP 15",
+"✨ TOP 10",
+"💎 TOP 5",
+"👑 TOP 3",
+"❤️ TOP 1 ❤️"
+];
+
+let k=0;
+
+top.classList.add("show");
+
+let timer=setInterval(()=>{
+
+top.innerHTML=list[k];
+
+firework();
+
+k++;
+
+if(k>=list.length){
+
+clearInterval(timer);
+
+setTimeout(finalMessage,1800);
+
+}
+
+},1800);
+
+}
+
+function finalMessage(){
+
+document.getElementById("text").innerHTML+=`
+<br><br>
+
+<h2 style="color:#ff66cc;">
+Đối với anh...<br>
+Em luôn là <span style="color:#00ff99;">TOP 1</span> ❤️
+</h2>
+
+<br>
+
+<div style="font-size:26px;line-height:45px;">
+Cảm ơn em vì đã luôn cố gắng.<br>
+Hãy tiếp tục tỏa sáng nhé cô gái của anh ✨<br><br>
+
+❤️ Anh yêu em rất nhiều ❤️
+</div>
+
+`;
+
+}
+
+function createHeart(){
+
+const heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.top="100vh";
+
+heart.style.fontSize=(20+Math.random()*40)+"px";
+
+heart.style.animationDuration=(4+Math.random()*5)+"s";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+
+heart.remove();
+
+},9000);
+
+}
+
+setInterval(createHeart,250);
+
+
+
+const canvas=document.getElementById("fireworks");
+
+const ctx=canvas.getContext("2d");
+
+canvas.width=window.innerWidth;
+
+canvas.height=window.innerHeight;
+
+window.onresize=()=>{
+
+canvas.width=window.innerWidth;
+
+canvas.height=window.innerHeight;
+
+}
+
+let particles=[];function firework(){
+
+let x=Math.random()*canvas.width;
+let y=Math.random()*canvas.height/2;
+
+for(let i=0;i<120;i++){
+
+particles.push({
+
+x:x,
+y:y,
+
+dx:(Math.random()-0.5)*8,
+
+dy:(Math.random()-0.5)*8,
+
+life:100,
+
+color:`hsl(${Math.random()*360},100%,60%)`
+
+});
+
+}
+
+}
+
+function animate(){
+
+ctx.fillStyle="rgba(0,0,0,0.15)";
+ctx.fillRect(0,0,canvas.width,canvas.height);
+
+for(let i=particles.length-1;i>=0;i--){
+
+let p=particles[i];
+
+ctx.beginPath();
+
+ctx.arc(p.x,p.y,3,0,Math.PI*2);
+
+ctx.fillStyle=p.color;
+
+ctx.fill();
+
+p.x+=p.dx;
+p.y+=p.dy;
+
+p.dy+=0.03;
+
+p.life--;
+
+if(p.life<=0){
+
+particles.splice(i,1);
+
+}
+
+}
+
+requestAnimationFrame(animate);
+
+}
+
+animate();
+
+setInterval(firework,2500);
+
+
+
+/* ===========================
+      BẦU TRỜI SAO
+=========================== */
+
+let stars=[];
+
+for(let i=0;i<200;i++){
+
+stars.push({
+
+x:Math.random()*canvas.width,
+
+y:Math.random()*canvas.height,
+
+r:Math.random()*2,
+
+a:Math.random()
+
+});
+
+}
+
+function drawStars(){
+
+for(let s of stars){
+
+ctx.beginPath();
+
+ctx.arc(s.x,s.y,s.r,0,Math.PI*2);
+
+ctx.fillStyle="rgba(255,255,255,"+s.a+")";
+
+ctx.fill();
+
+}
+
+}
+
+setInterval(()=>{
+
+stars.forEach(s=>{
+
+s.a=Math.random();
+
+});
+
+},500);
+
+const oldAnimate=animate;
+
+function animate(){
+
+ctx.fillStyle="rgba(0,0,20,0.25)";
+ctx.fillRect(0,0,canvas.width,canvas.height);
+
+drawStars();
+
+for(let i=particles.length-1;i>=0;i--){
+
+let p=particles[i];
+
+ctx.beginPath();
+
+ctx.arc(p.x,p.y,3,0,Math.PI*2);
+
+ctx.fillStyle=p.color;
+
+ctx.fill();
+
+p.x+=p.dx;
+p.y+=p.dy;
+
+p.dy+=0.03;
+
+p.life--;
+
+if(p.life<=0){
+
+particles.splice(i,1);
+
+}
+
+}
+
+requestAnimationFrame(animate);
+
+}
+
+animate();/* ======================================
+      TRÁI TIM ĐẬP Ở CUỐI TRANG
+====================================== */
+
+function createBigHeart(){
+
+    const heart=document.createElement("div");
+
+    heart.innerHTML="❤️";
+
+    heart.style.position="fixed";
+    heart.style.left="50%";
+    heart.style.top="82%";
+    heart.style.transform="translate(-50%,-50%)";
+    heart.style.fontSize="80px";
+    heart.style.zIndex="999";
+
+    document.body.appendChild(heart);
+
+    let scale=1;
+
+    setInterval(()=>{
+
+        scale=(scale==1)?1.25:1;
+
+        heart.style.transform=
+        `translate(-50%,-50%) scale(${scale})`;
+
+    },600);
+
+}
+
+setTimeout(createBigHeart,18000);
+
+
+
+/* ======================================
+          SAO BĂNG
+====================================== */
+
+function shootingStar(){
+
+    let x=Math.random()*canvas.width;
+
+    let y=Math.random()*canvas.height/3;
+
+    let len=180;
+
+    let dx=8;
+
+    let dy=5;
+
+    let life=0;
+
+    let timer=setInterval(()=>{
+
+        ctx.beginPath();
+
+        ctx.moveTo(x,y);
+
+        ctx.lineTo(x-len,y-len/2);
+
+        ctx.strokeStyle="white";
+
+        ctx.lineWidth=2;
+
+        ctx.stroke();
+
+        x+=dx;
+
+        y+=dy;
+
+        life++;
+
+        if(life>25){
+
+            clearInterval(timer);
+
+        }
+
+    },30);
+
+}
+
+setInterval(shootingStar,5000);
+
+
+
+console.log("%c❤️ Chúc mừng Yuni ❤️",
+"color:pink;font-size:28px;font-weight:bold;");
+console.log("%cĐối với anh, em luôn là TOP 1!",
+"color:#00ff99;font-size:22px;");
+
+</script>
+
+</body>
+</html>

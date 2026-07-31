@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gửi Yuni | Một tấm thiệp nhỏ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="celebration"></canvas>
+    <div class="paper-texture"></div>
+    <main class="scene">
+        <p class="topline">Một điều nhỏ dành cho Yuni</p>
+        <section id="envelopeScene" class="envelope-scene" aria-label="Tấm thiệp chúc mừng">
+            <div class="envelope-shadow"></div>
+            <div class="envelope">
+                <div class="envelope-back"></div>
+                <div class="letter-preview">
+                    <p class="preview-small">CONGRATULATIONS</p>
+                    <p class="preview-rank">TOP <strong>20</strong></p>
+                    <p class="preview-name">Yuni</p>
+                </div>
+                <div class="flap"></div>
+                <div class="envelope-front"></div>
+                <div class="seal">♥</div>
+            </div>
+            <button id="openCard" class="open-button" type="button">Mở thiệp <span>↗</span></button>
+            <p class="hint">bấm vào đây để mở quà</p>
+        </section>
+        <section id="cardContent" class="card-content" aria-live="polite">
+            <div class="card-top"><span>01.08.2026</span><span>FOR YUNI</span></div>
+            <div class="card-body">
+                <div class="photo-corner">
+                    <img src="assets/yuni.jpg" alt="Ảnh của Yuni" onerror="this.parentElement.classList.add('empty')">
+                    <span>YUNI ♥</span>
+                </div>
+                <p class="card-kicker">Hôm nay em đã làm được một điều thật đẹp</p>
+                <h1>Chúc mừng<br><em>Top 20</em>, Yuni!</h1>
+                <div class="gold-line"></div>
+                <p id="typedMessage" class="message"></p>
+                <p class="signature">Thương em,<br><strong>người luôn tự hào về em ♥</strong></p>
+            </div>
+            <div class="love-actions">
+                <button id="againBtn" class="again-button" type="button">Thả thêm yêu thương <span>✦</span></button>
+                <button id="heartBtn" class="again-button heart-button" type="button">Thả iuu iuu <span>♥</span></button>
+            </div>
+        </section>
+        <footer>made with love for your brightest live</footer>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
