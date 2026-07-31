@@ -9,13 +9,12 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <style>
+        .photo-corner { position: static; width: 92px; margin: 24px auto 18px; transform: rotate(3deg); }
+        .photo-corner img { width: 80px; height: 92px; }
         @media (max-width: 600px) {
             .envelope-scene.open { height: 265px; }
             .envelope-scene.open .letter-preview { transform: translateY(-135px); }
-            .card-body { padding-top: 118px; }
-            .photo-corner { top: 14px; right: 10px; width: 78px; padding: 5px 5px 7px; }
-            .photo-corner img { width: 68px; height: 76px; }
-            .photo-corner span { margin-top: 4px; font-size: 7px; }
+            .photo-corner span { margin-top: 5px; font-size: 8px; }
             .card-body h1 { margin-top: 18px; }
         }
     </style>
@@ -44,12 +43,12 @@
         <section id="cardContent" class="card-content" aria-live="polite">
             <div class="card-top"><span>01.08.2026</span><span>FOR YUNI</span></div>
             <div class="card-body">
+                <p class="card-kicker">Hôm nay em đã làm được một điều thật đẹp</p>
+                <h1>Chúc mừng<br><em>Top 15</em>, Yuni!</h1>
                 <div class="photo-corner">
                     <img src="assets/yuni.jpg" alt="Ảnh của Yuni" onerror="this.parentElement.classList.add('empty')">
                     <span>YUNI ♥</span>
                 </div>
-                <p class="card-kicker">Hôm nay em đã làm được một điều thật đẹp</p>
-                <h1>Chúc mừng<br><em>Top 15</em>, Yuni!</h1>
                 <div class="gold-line"></div>
                 <p id="typedMessage" class="message"></p>
                 <p class="signature">Thương em,<br><strong>người luôn tự hào về em ♥</strong></p>
