@@ -8,6 +8,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <style>
+        @media (max-width: 600px) {
+            .envelope-scene.open { height: 265px; }
+            .envelope-scene.open .letter-preview { transform: translateY(-135px); }
+            .card-body { padding-top: 118px; }
+            .photo-corner { top: 14px; right: 10px; width: 78px; padding: 5px 5px 7px; }
+            .photo-corner img { width: 68px; height: 76px; }
+            .photo-corner span { margin-top: 4px; font-size: 7px; }
+            .card-body h1 { margin-top: 18px; }
+        }
+    </style>
 </head>
 <body>
     <canvas id="celebration"></canvas>
